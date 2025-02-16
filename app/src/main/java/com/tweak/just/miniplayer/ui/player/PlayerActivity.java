@@ -3,6 +3,7 @@ package com.tweak.just.miniplayer.ui.player;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
@@ -15,6 +16,7 @@ public class PlayerActivity extends AppCompatActivity {
 
     private PlayerViewModel playerViewModel;
     private TextView tvTitle, tvArtist, tvCurrentTime, tvRemainingTime;
+    private ImageView imgAlbumArt;
     private SeekBar seekBar;
     private ImageButton btnPlayPause, btnNext, btnPrev;
 
@@ -24,6 +26,7 @@ public class PlayerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_player);
 
         // View 초기화
+        imgAlbumArt = findViewById(R.id.img_album_art);
         tvTitle = findViewById(R.id.tv_title);
         tvArtist = findViewById(R.id.tv_artist);
         tvCurrentTime = findViewById(R.id.tv_current_time);
@@ -47,8 +50,15 @@ public class PlayerActivity extends AppCompatActivity {
         playerViewModel.initializePlayer(url);
 
         // LiveData 관찰
-        playerViewModel.getTitle().observe(this, tvTitle::setText);
-        playerViewModel.getArtist().observe(this, tvArtist::setText);
+        playerViewModel.getSongTitle().observe(this, tvTitle::setText);
+        playerViewModel.getSongArtist().observe(this, tvArtist::setText);
+        playerViewModel.getAlbumArt().observe(this, bitmap -> {
+            if (bitmap != null) {
+                imgAlbumArt.setImageBitmap(bitmap);
+            } else {
+                imgAlbumArt.setImageResource(R.drawable.ic_music_placeholder);
+            }
+        });
         playerViewModel.getCurrentPosition().observe(this, position -> {
             seekBar.setProgress(position);
             tvCurrentTime.setText(formatTime(position));

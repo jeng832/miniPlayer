@@ -12,7 +12,8 @@
         android:layout_height="300dp"
         android:layout_centerHorizontal="true"
         android:scaleType="centerCrop"
-        android:contentDescription="@string/album_art" />
+        android:contentDescription="@string/album_art"
+        android:src="@drawable/ic_music_placeholder" />
 
     <!-- 음악 제목 -->
     <TextView
@@ -23,7 +24,8 @@
         android:textSize="20sp"
         android:textColor="@android:color/black"
         android:gravity="center"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:text="제목" />
 
     <!-- 아티스트 이름 -->
     <TextView
@@ -33,7 +35,8 @@
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:textColor="@android:color/darker_gray"
-        android:gravity="center" />
+        android:gravity="center"
+        android:text="아티스트" />
 
     <!-- 재생 스크롤바 -->
     <SeekBar
