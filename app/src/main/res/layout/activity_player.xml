@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@android:color/background_light">
+
+    <!-- 앨범 아트 -->
+    <ImageView
+        android:id="@+id/img_album_art"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/album_art" />
+
+    <!-- 음악 제목 -->
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_below="@+id/img_album_art"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:textStyle="bold" />
+
+    <!-- 아티스트 이름 -->
+    <TextView
+        android:id="@+id/tv_artist"
+        android:layout_below="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@android:color/darker_gray"
+        android:gravity="center" />
+
+    <!-- 재생 스크롤바 -->
+    <SeekBar
+        android:id="@+id/seek_bar"
+        android:layout_below="@+id/tv_artist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- 재생 시간과 남은 시간 (layout_width, layout_height 추가) -->
+    <TextView
+        android:id="@+id/tv_current_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/seek_bar"
+        android:layout_marginStart="16dp"
+        android:text="0:00"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_remaining_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/seek_bar"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp"
+        android:text="-0:00"
+        android:textSize="14sp" />
+
+    <!-- 재생 컨트롤 버튼 -->
+    <LinearLayout
+        android:layout_below="@+id/tv_current_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="24dp">
+
+        <ImageButton
+            android:id="@+id/btn_prev"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@android:drawable/ic_media_previous"
+            android:contentDescription="@string/previous_song" />
+
+        <ImageButton
+            android:id="@+id/btn_play_pause"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@android:drawable/ic_media_play"
+            android:contentDescription="@string/play_pause" />
+
+        <ImageButton
+            android:id="@+id/btn_next"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@android:drawable/ic_media_next"
+            android:contentDescription="@string/next_song" />
+    </LinearLayout>
+
+</RelativeLayout>

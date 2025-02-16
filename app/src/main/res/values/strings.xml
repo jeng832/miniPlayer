@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 재생 화면 관련 문자열 -->
+    <string name="app_name">miniPlayer</string>
+    <string name="album_art">앨범 아트</string>
+    <string name="previous_song">이전 곡</string>
+    <string name="next_song">다음 곡</string>
+    <string name="play_pause">재생/중지</string>
+
+    <!-- 샘플 데이터 -->
+    <string name="sample_title">Sample Music</string>
+    <string name="sample_artist">Sample Artist</string>
+</resources>
