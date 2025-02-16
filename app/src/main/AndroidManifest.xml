@@ -18,7 +18,9 @@
         </activity>
 
         <!-- 재생 액티비티 등록 -->
-        <activity android:name=".ui.player.PlayerActivity" />
+        <activity
+            android:name=".ui.player.PlayerActivity"
+            android:theme="@style/Theme.MiniPlayer.NoActionBar"/>
     </application>
 
     <uses-permission android:name="android.permission.READ_MEDIA_AUDIO"/>
